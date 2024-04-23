@@ -13,9 +13,8 @@ public class Dealership {
      * @param name
      * @param phone
      * @param address
-     * @param inventory
      */
-    public Dealership(String name, String phone, String address, ArrayList<Vehicle> inventory) {
+    public Dealership(String name, String phone, String address) {
         this.name = name;
         this.phone = phone;
         this.address = address;
@@ -90,5 +89,15 @@ public class Dealership {
 
     public void removeVehicle(Vehicle vehicle){
         this.inventory.remove(vehicle);
+    }
+
+    @Override
+    public String toString() {
+        return "Dealership{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", inventory=" + inventory +
+                '}';
     }
 }
