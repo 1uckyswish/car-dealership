@@ -1,7 +1,9 @@
 package com.pluralsight;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Pattern;
@@ -49,6 +51,18 @@ public class DealershipFileManager {
 
 
     public void saveDealership(Dealership dealership){
-        System.out.println("SAVE DEALERSHIP NOT COMPLETE");
+        try {
+            ArrayList<Vehicle> inventory = dealership.getAllVehicles();
+            BufferedWriter writer = new BufferedWriter(new FileWriter("inventory.csv", true));
+            while (true){
+                for (Vehicle vehicle : inventory){
+                    writer.write(vehicle.getVin() + "|" + vehicle.getYear() + "|" + vehicle.getMake() + "|" + vehicle.getModel() + "|" + vehicle.getVehicleType() + "|" + vehicle.getColor() + "|" + vehicle.getOdometer() + "|" + vehicle.getPrice());
+                }
+            }
+            writer.close();
+        }catch (Exception e){
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
