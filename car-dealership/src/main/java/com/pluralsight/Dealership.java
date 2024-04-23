@@ -3,13 +3,15 @@ package com.pluralsight;
 import java.util.ArrayList;
 
 public class Dealership {
-    private String name;//Hippo City used cards
-    private String address;//111 old benny dr
-    private String phone; //(803)-487-9900 ex
+    private String name;// Hippo City used cards
+    private String address;// 111 old benny dr
+    private String phone; // (803)-487-9900 ex
     private ArrayList<Vehicle> inventory;
 
     /**
-     * This Class sets up a structure for creating dealership objects with attributes
+     * This Class sets up a structure for creating dealership objects with
+     * attributes
+     *
      * @param name
      * @param phone
      * @param address
@@ -19,9 +21,11 @@ public class Dealership {
         this.phone = phone;
         this.address = address;
         this.inventory = new ArrayList<>();
-        //every time you create a new Dealership object using this constructor,
-        // a new, empty ArrayList will be created and associated with that specific Dealership object.
-        // ensuring that each Dealership object has its own inventory list ready to be populated with vehicle data.
+        // every time you create a new Dealership object using this constructor,
+        // a new, empty ArrayList will be created and associated with that specific
+        // Dealership object.
+        // ensuring that each Dealership object has its own inventory list ready to be
+        // populated with vehicle data.
     }
 
     public String getName() {
@@ -48,46 +52,47 @@ public class Dealership {
         this.phone = phone;
     }
 
-    //Methods for dealership
+    // Methods for dealership
 
-    public ArrayList<Vehicle> getVehiclesByPrice(){
+    public ArrayList<Vehicle> getVehiclesByPrice() {
         ArrayList<Vehicle> searchResults = new ArrayList<>();
         return searchResults;
     }
 
-    public ArrayList<Vehicle> getVehiclesByMake(){
+    public ArrayList<Vehicle> getVehiclesByMake() {
         ArrayList<Vehicle> searchResults = new ArrayList<>();
         return searchResults;
     }
 
-    public ArrayList<Vehicle> getVehiclesByYear(){
+    public ArrayList<Vehicle> getVehiclesByYear() {
         ArrayList<Vehicle> searchResults = new ArrayList<>();
         return searchResults;
     }
 
-    public ArrayList<Vehicle> getVehiclesByColor(){
+    public ArrayList<Vehicle> getVehiclesByColor() {
         ArrayList<Vehicle> searchResults = new ArrayList<>();
         return searchResults;
     }
 
-    public ArrayList<Vehicle> getVehiclesByMileage(){
+    public ArrayList<Vehicle> getVehiclesByMileage() {
         ArrayList<Vehicle> searchResults = new ArrayList<>();
         return searchResults;
     }
 
-    public ArrayList<Vehicle> getVehiclesByType(){
+    public ArrayList<Vehicle> getVehiclesByType() {
         ArrayList<Vehicle> searchResults = new ArrayList<>();
         return searchResults;
     }
+
     public ArrayList<Vehicle> getAllVehicles() {
         return inventory;
     }
 
-    public void addVehicle(Vehicle vehicle){
+    public void addVehicle(Vehicle vehicle) {
         this.inventory.add(vehicle);
     }
 
-    public void removeVehicle(Vehicle vehicle){
+    public void removeVehicle(Vehicle vehicle) {
         this.inventory.remove(vehicle);
     }
 

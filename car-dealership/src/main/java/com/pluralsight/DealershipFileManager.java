@@ -23,11 +23,9 @@ public class DealershipFileManager {
                 inventory.add(vehicle);
             }
             dealership = new Dealership(headers[0], headers[1], headers[2]);
-            for (Vehicle car : inventory){
+            for (Vehicle car : inventory) {
                 dealership.addVehicle(car);
             }
-            System.out.println("New dealership\n" + dealership);
-            System.out.println("");
             reader.close();
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
@@ -36,8 +34,7 @@ public class DealershipFileManager {
         return dealership;
     }
 
-
-    public Vehicle makeVehicleClass(String[] carDetails){
+    public Vehicle makeVehicleClass(String[] carDetails) {
         int vin = Integer.parseInt(carDetails[0]);
         int year = Integer.parseInt(carDetails[1]);
         String make = carDetails[2];
@@ -49,18 +46,26 @@ public class DealershipFileManager {
         return new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
     }
 
-
-    public void saveDealership(Dealership dealership){
+    public void saveDealership(Dealership dealership) {
         try {
             ArrayList<Vehicle> inventory = dealership.getAllVehicles();
-            BufferedWriter writer = new BufferedWriter(new FileWriter("inventory.csv", true));
-            while (true){
-                for (Vehicle vehicle : inventory){
-                    writer.write(vehicle.getVin() + "|" + vehicle.getYear() + "|" + vehicle.getMake() + "|" + vehicle.getModel() + "|" + vehicle.getVehicleType() + "|" + vehicle.getColor() + "|" + vehicle.getOdometer() + "|" + vehicle.getPrice());
-                }
+            BufferedWriter writer = new BufferedWriter(new FileWriter("inventory.csv", false)); // Create a new file
+            // Write headers
+            writer.write(dealership.getName() + "|" + dealership.getPhone() + "|" + dealership.getAddress() + "\n");
+            // Write vehicle details
+            for (Vehicle vehicle : inventory) {
+                writer.write(
+                        vehicle.getVin() + "|" +
+                                vehicle.getYear() + "|" +
+                                vehicle.getMake() + "|" +
+                                vehicle.getModel() + "|" +
+                                vehicle.getVehicleType() + "|" +
+                                vehicle.getColor() + "|" +
+                                vehicle.getOdometer() + "|" +
+                                vehicle.getPrice() + "\n");
             }
             writer.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
             e.printStackTrace();
         }

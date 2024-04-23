@@ -1,17 +1,22 @@
 package com.pluralsight;
 
+import java.text.DecimalFormat;
+
+import java.text.DecimalFormat;
+
 public class Vehicle {
     private int vin;
     private int year;
     private String make;
     private String model;
-    private String vehicleType; //Car, Truck, Van, etc..
+    private String vehicleType; // Car, Truck, Van, etc..
     private String color;
     private int odometer;
     private double price;
 
     /**
      * This will make a single vehicle and its attributes for it
+     *
      * @param vin
      * @param year
      * @param make
@@ -21,7 +26,8 @@ public class Vehicle {
      * @param odometer
      * @param price
      */
-    public Vehicle(int vin, int year, String make, String model, String vehicleType, String color, int odometer, double price) {
+    public Vehicle(int vin, int year, String make, String model, String vehicleType, String color, int odometer,
+                   double price) {
         this.vin = vin;
         this.year = year;
         this.make = make;
@@ -98,15 +104,31 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle{" +
-                "vin=" + vin +
-                ", year=" + year +
-                ", make='" + make + '\'' +
-                ", model='" + model + '\'' +
-                ", vehicleType='" + vehicleType + '\'' +
-                ", color='" + color + '\'' +
-                ", odometer=" + odometer +
-                ", price=" + price +
-                '}';
+        String border = "||";
+        String padding = " ";
+        String line = "═════════════════════════════════════════";
+
+        // Format the price with two decimal places and commas for thousands separators
+        DecimalFormat formatter = new DecimalFormat("#,##0.00");
+        String formattedPrice = formatter.format(price);
+
+        // Format the odometer reading with commas
+        DecimalFormat odometerFormatter = new DecimalFormat("#,###");
+        String formattedOdometer = odometerFormatter.format(odometer);
+
+        StringBuilder formattedString = new StringBuilder();
+        formattedString.append("╔").append(line).append("╗\n");
+        formattedString.append("║").append(padding).append("VIN: ").append(vin).append("\n");
+        formattedString.append("║").append(padding).append("Year: ").append(year).append("\n");
+        formattedString.append("║").append(padding).append("Make: ").append(make).append("\n");
+        formattedString.append("║").append(padding).append("Model: ").append(model).append("\n");
+        formattedString.append("║").append(padding).append("Vehicle Type: ").append(vehicleType).append("\n");
+        formattedString.append("║").append(padding).append("Color: ").append(color).append("\n");
+        formattedString.append("║").append(padding).append("Odometer: ").append(formattedOdometer).append(" miles\n");
+        formattedString.append("║").append(padding).append("Price: $").append(formattedPrice).append("\n");
+        formattedString.append("╚").append(line).append("╝");
+
+        return formattedString.toString();
     }
+
 }
