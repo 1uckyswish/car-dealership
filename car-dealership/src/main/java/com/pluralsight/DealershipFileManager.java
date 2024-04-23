@@ -13,12 +13,10 @@ public class DealershipFileManager {
         try {
             BufferedReader reader = new BufferedReader(new FileReader("inventory.csv"));
             String[] headers = reader.readLine().split(Pattern.quote("|"));
-            System.out.println(Arrays.toString(headers));
             ArrayList<Vehicle> inventory = new ArrayList<>();
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] carDetails = line.split(Pattern.quote("|"));
-                System.out.println(Arrays.toString(carDetails));
                 Vehicle vehicle = makeVehicleClass(carDetails);
                 inventory.add(vehicle);
             }
@@ -27,12 +25,11 @@ public class DealershipFileManager {
                 dealership.addVehicle(car);
             }
             System.out.println("New dealership\n" + dealership);
+            System.out.println("");
             reader.close();
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
-            // Decide on appropriate action, e.g., return null or rethrow the exception
-            // return null;
-            // throw new RuntimeException("Failed to create dealership", e);
+            e.printStackTrace();
         }
         return dealership;
     }
@@ -48,5 +45,10 @@ public class DealershipFileManager {
         int odometer = Integer.parseInt(carDetails[6]);
         double price = Double.parseDouble(carDetails[7]);
         return new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+    }
+
+
+    public void saveDealership(Dealership dealership){
+        System.out.println("SAVE DEALERSHIP NOT COMPLETE");
     }
 }
