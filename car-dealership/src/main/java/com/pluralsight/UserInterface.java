@@ -34,7 +34,6 @@ public class UserInterface {
 
             // Read user command
             String choice = scanner.nextLine();
-            scanner.nextLine(); // Consume newline character
 
             // Process user command
             switch (choice) {
