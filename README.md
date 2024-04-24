@@ -81,10 +81,11 @@ The main screen of the Java Car Dealership interface presents users with various
 
 Verify the data type entered by the user using the scanner for each input. If the user enters an incompatible data type, such as entering a double when a string is required for the information, display a message indicating that the user input is incorrect.
 
-### Error Handling: If the user tries to check out their cart, but it's empty.
+![Screenshot 2024-04-24 at 11 49 27 AM](https://github.com/1uckyswish/car-dealership/assets/107442415/cfd8409e-2629-46f8-8f3c-7daa78e3eff3)
+
 
 ## Interesting Section of code
-### Similar to a real shopping experience, this code allows users to continue adding items to their cart until they choose to exit by returning to the home screen, much like walking out of the store's door.
+### 
 
 
 
