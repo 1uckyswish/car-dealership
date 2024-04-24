@@ -68,11 +68,23 @@ Remove a Vehicle from the Inventory enables users to efficiently remove a vehicl
 
 ![Screenshot 2024-04-24 at 11 41 02 AM](https://github.com/1uckyswish/car-dealership/assets/107442415/c6832c28-8055-4109-a5a4-42ebaeb91271)
 
+## Error Handling Section
+
+### Main Class (Home) Error handle
+
+The main screen of the Java Car Dealership interface presents users with various options to choose from. It includes error handling to manage instances where users input an option that is not one of the displayed choices. If the user selects the wrong option, a message is displayed, and the menu is presented again for the user to make a correct selection.
+
+![Screenshot 2024-04-24 at 11 43 38 AM](https://github.com/1uckyswish/car-dealership/assets/107442415/b388f9d5-71b0-42bf-9a88-2d0ed78ba715)
 
 
+### Error Handling for Adding a New Car Using Scanner with Incorrect Data Type from the Given Prompt
 
+Verify the data type entered by the user using the scanner for each input. If the user enters an incompatible data type, such as entering a double when a string is required for the information, display a message indicating that the user input is incorrect.
 
+### Error Handling: If the user tries to check out their cart, but it's empty.
 
+## Interesting Section of code
+### Similar to a real shopping experience, this code allows users to continue adding items to their cart until they choose to exit by returning to the home screen, much like walking out of the store's door.
 
 
 
