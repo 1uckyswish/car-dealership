@@ -37,7 +37,7 @@ public class UserInterface {
         // Create a boolean flag to check if user clicked the correct choice given
         boolean exit = false;
 
-        // If not true continue
+        // If not true, continue
         while (!exit) {
             // Display menu
             System.out.println("==== Dealership Menu ====");
@@ -201,7 +201,7 @@ public class UserInterface {
         // Pass the question and scanner into the method to validate the correct input
         // data Type
         System.out.print("Please specify the color of the car you are looking for: ");
-        // When it returns make it lowerCase for easier checking below
+        // When it returns make it lowerCase for the easier checking below
         String colorChoice = validateStringInput(scanner, "Please enter the car color: ").toLowerCase();
         // Pass the value the user submitted to the method of the dealership to do the
         // checking
@@ -257,7 +257,7 @@ public class UserInterface {
         // Pass the question and scanner into the method to validate the correct input
         // data Type
         System.out.print("Please specify the type of vehicle you are looking for: ");
-        // When it returns make it lowerCase for easier checking below
+        // When it returns make it lowerCase for the easier checking below
         String typeChoice = validateStringInput(scanner, "Please enter the type of vehicle: ").toLowerCase();
 
         // Pass the value the user submitted to the method of the dealership to do the
@@ -293,9 +293,9 @@ public class UserInterface {
      * Prompts the user to enter vehicle details such as VIN, year, make, model,
      * vehicle type, color, odometer reading, and price.
      * Validates the input data types using helper methods.
-     * Creates a new Vehicle object with the entered details.
-     * Adds the new Vehicle to the dealership's inventory.
-     * Saves the updated inventory to a file using DealershipFileManager.
+     * Create a new Vehicle object with the entered details.
+     * Add the new Vehicle to the dealership's inventory.
+     * Save the updated inventory to a file using DealershipFileManager.
      * Displays a confirmation message with the details of the newly added vehicle.
      *
      * @param scanner Scanner object used for user input
@@ -355,7 +355,7 @@ public class UserInterface {
         for (Vehicle vehicle : inventory) {
             // Loop through the Arraylist to find the Vin
             if (vehicle.getVin() == vinChoice) {
-                // If found remove the Vehicle using the dealerships helper method
+                // If found, remove the Vehicle using the dealerships helper method
                 temporaryVehicle = vehicle;
                 dealership.removeVehicle(vehicle);
                 // Update the boolean flag to true
@@ -368,22 +368,20 @@ public class UserInterface {
         if (!found) {
             System.out.println("\n==== Sorry, there are no vehicles available with the specified VIN ===\n");
         } else {
-            // If Vin is found it will remove it
+            // If Vin is found, it will remove it
             // Display the user the Vehicle you removed
             System.out.println("\n==== Vehicle Removed ====");
             System.out.println(temporaryVehicle);
             // Save the updated dealership after removing the vehicle
             DealershipFileManager fileManager = new DealershipFileManager();
             fileManager.saveDealership(dealership);
-            // System.out.println("Remaining inventory:");
-            // displayVehicles(dealership.getAllVehicles());
         }
     }
 
     /**
      * Displays the details of all vehicles in the inventory.
      * Iterates through the list of vehicles passed as a parameter.
-     * Prints the details of each vehicle to the console.
+     * Print the details of each vehicle to the console.
      *
      * @param vehicles ArrayList of vehicles to be displayed
      */
@@ -441,7 +439,7 @@ public class UserInterface {
         while (true) {
             // Print out the question for user to respond to
             System.out.print(prompt);
-            // If the scanner notices its asking for an String, and it feeds it, then apply
+            // If the scanner notices its asking for a String, and it feeds it, then apply
             // it to the variable
             if (scanner.hasNextLine()) {
                 // Break out the loop when it matches

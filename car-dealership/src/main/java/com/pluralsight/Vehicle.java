@@ -2,8 +2,6 @@ package com.pluralsight;
 
 import java.text.DecimalFormat;
 
-import java.text.DecimalFormat;
-
 public class Vehicle {
     private int vin;
     private int year;
@@ -113,11 +111,10 @@ public class Vehicle {
      */
     @Override
     public String toString() {
-        String border = "||";
         String padding = " ";
         String line = "═════════════════════════════════════════";
 
-        // Format the price with two decimal places and commas for thousands separators
+        // Format the price with two decimal places and commas for a thousand separators
         DecimalFormat formatter = new DecimalFormat("#,##0.00");
         String formattedPrice = formatter.format(price);
 
