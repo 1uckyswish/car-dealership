@@ -48,20 +48,25 @@ Filter Vehicles by Mileage allows users to refine their search based on mileage 
 
 Filter Vehicles by Vehicle Type enables users to narrow down their search by specifying the type of vehicle they are interested in, such as car, truck, SUV, or van, providing a more targeted browsing experience tailored to their needs.
 
-
 ![Screenshot 2024-04-24 at 11 23 06 AM](https://github.com/1uckyswish/car-dealership/assets/107442415/5712175f-8e03-48cc-90fa-1b00921aef24)
 
+## Option 7: Return all Vehicles In Iventory:
 
+Return All Vehicles in Inventory provides users with a comprehensive list of all vehicles currently available in the dealership's inventory, facilitating easy access to view all available options at once.
 
+![Screenshot 2024-04-24 at 11 35 42 AM](https://github.com/1uckyswish/car-dealership/assets/107442415/ad9ee96f-190e-4c07-8bb8-8ab9bcedf538)
 
+## Option 8: Add A New Vehicle To Iventory:
 
+Add a New Vehicle to Inventory allows users to seamlessly add a new vehicle to the dealership's inventory, ensuring that the system stays up-to-date with the latest available vehicles for potential customers to browse and purchase.
 
+![Screenshot 2024-04-24 at 11 39 12 AM](https://github.com/1uckyswish/car-dealership/assets/107442415/074ead8d-1910-4900-9956-bdd25426f4b0)
 
+## Option 9: Remove A Vehicle From The Iventory:
 
+Remove a Vehicle from the Inventory enables users to efficiently remove a vehicle from the dealership's inventory, ensuring that outdated or sold vehicles are accurately reflected in the system, maintaining inventory accuracy and facilitating smooth operations.
 
-
-
-
+![Screenshot 2024-04-24 at 11 41 02 AM](https://github.com/1uckyswish/car-dealership/assets/107442415/c6832c28-8055-4109-a5a4-42ebaeb91271)
 
 
 
