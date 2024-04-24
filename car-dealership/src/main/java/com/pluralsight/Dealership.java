@@ -52,7 +52,8 @@ public class Dealership {
         this.phone = phone;
     }
 
-    // Methods for dealership
+    //Methods for dealership
+
 
     public ArrayList<Vehicle> getVehiclesByPrice(double minPrice, double maxPrice) {
         ArrayList<Vehicle> searchResults = new ArrayList<>();

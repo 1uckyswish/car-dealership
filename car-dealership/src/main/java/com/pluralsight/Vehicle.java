@@ -38,6 +38,10 @@ public class Vehicle {
         this.price = price;
     }
 
+    /**
+     * //Create its getters and setters for attributes
+     *
+     */
     public int getVin() {
         return vin;
     }
@@ -102,6 +106,11 @@ public class Vehicle {
         this.price = price;
     }
 
+
+    /**
+     * Formatted way to display the attributes in a well-structured way for user to rea
+     * @return String
+     */
     @Override
     public String toString() {
         String border = "||";
