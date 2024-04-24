@@ -122,7 +122,7 @@ public class Dealership {
         for (Vehicle vehicle : inventory) {
             // If the vehicle's make and model match the specified values
             // (case-insensitive), add it to the search results
-            if (vehicle.getMake().equalsIgnoreCase(makeName) && vehicle.getModel().equalsIgnoreCase(modelName)) {
+            if (vehicle.getMake().toLowerCase().contains(makeName) || vehicle.getModel().toLowerCase().contains(modelName)) {
                 searchResults.add(vehicle);
             }
         }
@@ -166,7 +166,7 @@ public class Dealership {
         for (Vehicle vehicle : inventory) {
             // If the vehicle's color matches the specified value (case-insensitive), add it
             // to the search results
-            if (vehicle.getColor().equalsIgnoreCase(colorChoice)) {
+            if (vehicle.getColor().toLowerCase().contains(colorChoice)) {
                 searchResults.add(vehicle);
             }
         }
@@ -210,7 +210,7 @@ public class Dealership {
         for (Vehicle vehicle : inventory) {
             // If the vehicle's type matches the specified value (case-insensitive), add it
             // to the search results
-            if (vehicle.getVehicleType().equalsIgnoreCase(typeChoice)) {
+            if (vehicle.getVehicleType().toLowerCase().contains(typeChoice)) {
                 searchResults.add(vehicle);
             }
         }
