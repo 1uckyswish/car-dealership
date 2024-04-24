@@ -79,129 +79,101 @@ public class UserInterface {
         scanner.close();
     }
 
-    // Method to process a request for getting vehicles by price
     private void processGetByPriceRequest(Scanner scanner) {
         System.out.println("\nPlease enter the price range you're interested in");
-        ArrayList<Vehicle> inventory = dealership.getAllVehicles();
         double minPrice = validateDoubleInput(scanner, "Please enter the minimum price: ");
         double maxPrice = validateDoubleInput(scanner, "Please enter the maximum price: ");
-
         scanner.nextLine(); // Consume newline character
+        ArrayList<Vehicle> searchResults = dealership.getVehiclesByPrice(minPrice, maxPrice);
 
-        boolean found = false;
-        System.out.println("\n==== Vehicle Results By Price ====");
-        for (Vehicle vehicle : inventory) {
-            if (vehicle.getPrice() >= minPrice && vehicle.getPrice() <= maxPrice) {
-                System.out.println(vehicle);
-                found = true;
-            }
-        }
-        if (!found) {
-            System.out.println("\nSorry, there are no vehicles available within the specified price range.\n");
+        if (!searchResults.isEmpty()) {
+            System.out.println("\n==== Vehicle Results By Price ====");
+            displayVehicles(searchResults);
+        } else {
+            System.out.println("\n==== Sorry, there are no vehicles available within the specified price range ===\n");
         }
     }
 
     // Method to process a request for getting vehicles by make and model
     private void processGetByMakeModelRequest(Scanner scanner) {
-        System.out.print("Please specify the make or model you are looking for: ");
-        ArrayList<Vehicle> inventory = dealership.getAllVehicles();
+        System.out.print("Please specify the make: ");
         String makeName = validateStringInput(scanner, "Please enter the make name: ").toLowerCase();
 
+        System.out.print("Please specify the model: ");
         String modelName = validateStringInput(scanner, "Please enter the model name: ").toLowerCase();
 
-        boolean found = false;
-        System.out.println("\n==== Vehicle Results By Make Or Model ====");
-        for (Vehicle vehicle : inventory) {
-            if (vehicle.getMake().toLowerCase().contains(makeName)
-                    || vehicle.getModel().toLowerCase().contains(modelName)) {
-                System.out.println(vehicle);
-                found = true;
-            }
-        }
-        if (!found) {
-            System.out.println("Sorry, there are no vehicles available matching the specified make or model name.");
+        ArrayList<Vehicle> searchResults = dealership.getVehiclesByMake(makeName, modelName);
+
+        if (!searchResults.isEmpty()) {
+            System.out.println("\n==== Vehicle Results By Make And Model ====");
+            displayVehicles(searchResults);
+        } else {
+            System.out.println("\n=== Sorry, there are no vehicles available matching the specified make and model name ===\n");
         }
     }
 
-    // Method to process a request for getting vehicles by year
-    private void processGetByYearRequest(Scanner scanner) {
-        System.out.println("Please specify the year you are looking for: ");
-        ArrayList<Vehicle> inventory = dealership.getAllVehicles();
-        int yearChoice = validateIntInput(scanner, "Please enter the year: ");
-        scanner.nextLine(); // Consume newline character
 
-        boolean found = false;
-        System.out.println("\n==== Vehicle Results By Year ====");
-        for (Vehicle vehicle : inventory) {
-            if (vehicle.getYear() == yearChoice) {
-                System.out.println(vehicle);
-                found = true;
-            }
-        }
-        if (!found) {
-            System.out.println("Sorry, there are no vehicles available for the specified year.");
+    private void processGetByYearRequest(Scanner scanner) {
+        System.out.print("Please specify the year you are looking for: ");
+        int yearChoice = validateIntInput(scanner, "Please enter the year: ");
+        scanner.nextLine();
+        ArrayList<Vehicle> searchResults = dealership.getVehiclesByYear(yearChoice);
+
+        if (!searchResults.isEmpty()) {
+            System.out.println("\n==== Vehicle Results By Year ====");
+            displayVehicles(searchResults);
+        } else {
+            System.out.println("\n==== Sorry, there are no vehicles available for the specified year ====\n");
         }
     }
 
     // Method to process a request for getting vehicles by color
     private void processGetByColorRequest(Scanner scanner) {
-        System.out.println("Please specify the color of the car you are looking for: ");
-        ArrayList<Vehicle> inventory = dealership.getAllVehicles();
-        System.out.print("Please enter the car color: ");
+        System.out.print("Please specify the color of the car you are looking for: ");
         String colorChoice = validateStringInput(scanner, "Please enter the car color: ").toLowerCase();
 
-        boolean found = false;
-        System.out.println("\n==== Vehicle Result By Color ====");
-        for (Vehicle vehicle : inventory) {
-            if (vehicle.getColor().toLowerCase().contains(colorChoice)) {
-                System.out.println(vehicle);
-                found = true;
-            }
-        }
-        if (!found) {
-            System.out.println("Sorry, there are no vehicles available in the specified color.");
+        ArrayList<Vehicle> searchResults = dealership.getVehiclesByColor(colorChoice);
+
+        if (!searchResults.isEmpty()) {
+            System.out.println("\n==== Vehicle Results By Color ====");
+            displayVehicles(searchResults);
+        } else {
+            System.out.println("\n==== Sorry, there are no vehicles available in the specified color ====\n");
         }
     }
+
 
     // Method to process a request for getting vehicles by mileage
     private void processGetByMileageRequest(Scanner scanner) {
-        System.out.println("Please specify the desired mileage for a vehicle: ");
-        ArrayList<Vehicle> inventory = dealership.getAllVehicles();
+        System.out.print("Please specify the desired mileage for a vehicle: ");
         int mileageChoice = validateIntInput(scanner, "Please enter the desired mileage: ");
+        scanner.nextLine();
+        ArrayList<Vehicle> searchResults = dealership.getVehiclesByMileage(mileageChoice);
 
-        scanner.nextLine(); // Consume newline character
-
-        boolean found = false;
-        System.out.println("\n==== Vehicle Results By Mileage ====");
-        for (Vehicle vehicle : inventory) {
-            if (vehicle.getOdometer() == mileageChoice) {
-                System.out.println(vehicle);
-                found = true;
-            }
-        }
-        if (!found) {
-            System.out.println("Sorry, there are no vehicles available with the specified mileage.");
+        if (!searchResults.isEmpty()) {
+            System.out.println("\n==== Vehicle Results By Mileage ====");
+            displayVehicles(searchResults);
+        } else {
+            System.out.println("\n==== Sorry, there are no vehicles available with the specified mileage ===\n");
         }
     }
+
 
     // Method to process a request for getting vehicles by vehicle type
     private void processGetByVehicleTypeRequest(Scanner scanner) {
-        System.out.println("Please specify the type of vehicle you are looking for: ");
-        ArrayList<Vehicle> inventory = dealership.getAllVehicles();
-        System.out.print("Please enter the type of vehicle: ");
+        System.out.print("Please specify the type of vehicle you are looking for: ");
         String typeChoice = validateStringInput(scanner, "Please enter the type of vehicle: ").toLowerCase();
-        boolean found = false;
-        System.out.println("\n==== Vehicle Results By Type ====");
-        for (Vehicle vehicle : inventory) {
-            if (vehicle.getVehicleType().toLowerCase().contains(typeChoice)) {
-                System.out.println(vehicle);
-                found = true;
-            }
-        }
-        if (!found) {
-            System.out.println("Sorry, there are no vehicles available for the specified year.");
+
+        ArrayList<Vehicle> searchResults = dealership.getVehiclesByType(typeChoice);
+
+        if (!searchResults.isEmpty()) {
+            System.out.println("\n==== Vehicle Results By Type ====");
+            displayVehicles(searchResults);
+        } else {
+            System.out.println("\n==== Sorry, there are no vehicles available for the specified type ===\n");
         }
     }
+
 
     // Method to process a request for getting all vehicles
     private void processGetAllVehiclesRequest(Scanner scanner) {
@@ -248,7 +220,7 @@ public class UserInterface {
         }
 
         if (!found) {
-            System.out.println("Sorry, there are no vehicles available with the specified VIN.");
+            System.out.println("\n==== Sorry, there are no vehicles available with the specified VIN ===\n");
         } else {
             System.out.println("\n==== Vehicle Removed ====");
             System.out.println(temporaryVehicle);
@@ -275,7 +247,7 @@ public class UserInterface {
                 input = scanner.nextInt();
                 break;
             } else {
-                System.out.println("Sorry, that input is invalid. Please enter a valid numeric value");
+                System.out.println("\n==== Sorry, that input is invalid. Please enter a valid numeric value ===\n");
                 scanner.next(); // Consume invalid input
             }
         }
@@ -292,7 +264,7 @@ public class UserInterface {
                     break;
                 }
             }
-            System.out.println("Sorry, that input is invalid. Please enter a valid non-empty string");
+            System.out.println("\n==== Sorry, that input is invalid. Please enter a valid non-empty string ===\n");
         }
         return input;
     }
@@ -305,7 +277,7 @@ public class UserInterface {
                 input = scanner.nextDouble();
                 break;
             } else {
-                System.out.println("Sorry, that input is invalid. Please enter a valid numeric value");
+                System.out.println("\n==== Sorry, that input is invalid. Please enter a valid numeric value ===\n");
                 scanner.next(); // Consume invalid input
             }
         }

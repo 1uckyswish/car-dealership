@@ -3,14 +3,13 @@ package com.pluralsight;
 import java.util.ArrayList;
 
 public class Dealership {
-    private String name;// Hippo City used cards
-    private String address;// 111 old benny dr
-    private String phone; // (803)-487-9900 ex
+    private String name;// e.g. - Hippo City used cards
+    private String address;// e.g. - 11 old benny dr
+    private String phone; // e.g. - (803)-487-9900 ex
     private ArrayList<Vehicle> inventory;
 
     /**
-     * This Class sets up a structure for creating dealership objects with
-     * attributes
+     * This Class sets up a structure for creating dealership objects with attributes
      *
      * @param name
      * @param phone
@@ -28,6 +27,7 @@ public class Dealership {
         // populated with vehicle data.
     }
 
+    //Getters and setters for the following attributes
     public String getName() {
         return name;
     }
@@ -54,35 +54,66 @@ public class Dealership {
 
     // Methods for dealership
 
-    public ArrayList<Vehicle> getVehiclesByPrice() {
+    public ArrayList<Vehicle> getVehiclesByPrice(double minPrice, double maxPrice) {
         ArrayList<Vehicle> searchResults = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getPrice() >= minPrice && vehicle.getPrice() <= maxPrice) {
+                searchResults.add(vehicle);
+            }
+        }
         return searchResults;
     }
 
-    public ArrayList<Vehicle> getVehiclesByMake() {
+    public ArrayList<Vehicle> getVehiclesByMake(String makeName, String modelName) {
         ArrayList<Vehicle> searchResults = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getMake().equalsIgnoreCase(makeName) && vehicle.getModel().equalsIgnoreCase(modelName)) {
+                searchResults.add(vehicle);
+            }
+        }
         return searchResults;
     }
 
-    public ArrayList<Vehicle> getVehiclesByYear() {
+    public ArrayList<Vehicle> getVehiclesByYear(int yearChoice) {
         ArrayList<Vehicle> searchResults = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getYear() == yearChoice) {
+                searchResults.add(vehicle);
+            }
+        }
         return searchResults;
     }
 
-    public ArrayList<Vehicle> getVehiclesByColor() {
+    public ArrayList<Vehicle> getVehiclesByColor(String colorChoice) {
         ArrayList<Vehicle> searchResults = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getColor().equalsIgnoreCase(colorChoice)) {
+                searchResults.add(vehicle);
+            }
+        }
         return searchResults;
     }
 
-    public ArrayList<Vehicle> getVehiclesByMileage() {
+    public ArrayList<Vehicle> getVehiclesByMileage(int mileageChoice) {
         ArrayList<Vehicle> searchResults = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getOdometer() == mileageChoice) {
+                searchResults.add(vehicle);
+            }
+        }
         return searchResults;
     }
 
-    public ArrayList<Vehicle> getVehiclesByType() {
+    public ArrayList<Vehicle> getVehiclesByType(String typeChoice) {
         ArrayList<Vehicle> searchResults = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getVehicleType().equalsIgnoreCase(typeChoice)) {
+                searchResults.add(vehicle);
+            }
+        }
         return searchResults;
     }
+
 
     public ArrayList<Vehicle> getAllVehicles() {
         return inventory;
