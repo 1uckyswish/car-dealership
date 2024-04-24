@@ -106,9 +106,9 @@ public class Vehicle {
         this.price = price;
     }
 
-
     /**
-     * Formatted way to display the attributes in a well-structured way for user to rea
+     * Formatted way to display the attributes in a well-structured way for user to read
+     *
      * @return String
      */
     @Override
