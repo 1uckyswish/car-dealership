@@ -85,8 +85,10 @@ Verify the data type entered by the user using the scanner for each input. If th
 
 
 ## Interesting Section of code
-### 
+### This part of my code is interesting because, after some reading, understanding, and research, I discovered the concept of utility methods, which can be utilized throughout the program. These utility methods, particularly for type checking, have been beneficial. Whenever the user inputs data using the scanner, these methods ensure that the input is in the correct format. This enhances the reliability and robustness of the program, as it prevents errors caused by incorrect user inputs.
 
+
+![Screenshot 2024-04-24 at 11 52 43 AM](https://github.com/1uckyswish/car-dealership/assets/107442415/7ddcf017-a00f-4083-97cb-068e73aea010)
 
 
 
