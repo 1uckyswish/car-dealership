@@ -4,13 +4,13 @@ JavaCar Dealership is a user-friendly console-based application tailored for sal
 
 ## Main Class (Home)
 
-This is the heart of our Javazon Online Store project. The Main class manages all store functionalities. Check out the Maven Java folder structure on the left to see how the project is organized.
+This is the heart of our Java Car Dealership project. The Main class manages all store functionalities. Check out the Maven Java folder structure on the left to see how the project is organized.
 
 ![Screenshot 2024-04-24 at 10 51 16 AM](https://github.com/1uckyswish/car-dealership/assets/107442415/23ce2e41-07af-4fcf-9d15-ee13bd10a83a)
 
 ## Start of Program
 
-This is the main screen of the Javazon Online Store interface, offering users a variety of options to explore.
+This is the main screen of the Java Car Dealership interface, offering users a variety of options to explore.
 
 ![Screenshot 2024-04-24 at 11 04 47 AM](https://github.com/1uckyswish/car-dealership/assets/107442415/de57445f-92e8-4139-b7fc-9d07b8b74b15)
 
